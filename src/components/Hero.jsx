@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Smartphone, Monitor, Sparkles, ArrowRight, ShieldCheck, Download, Eye, Layers, Palette } from 'lucide-react';
 import { WALLPAPERS } from '../data/wallpapers';

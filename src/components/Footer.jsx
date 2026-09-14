@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Palette, Mail, Check } from 'lucide-react';
 

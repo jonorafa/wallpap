@@ -1,9 +1,9 @@
+'use client';
+
 import React, { useState, useRef } from 'react';
 import { X, Smartphone, Monitor, Layers, ZoomIn, Eye, ShoppingBag, Check, Sparkles, ShieldCheck } from 'lucide-react';
 
 export default function DevicePreviewModal({ wallpaper, onClose, onAddToCart }) {
-  if (!wallpaper) return null;
-
   const [activeDevice, setActiveDevice] = useState('iphone'); // 'iphone' or 'mac'
   const [selectedFormat, setSelectedFormat] = useState('bundle');
   const [showUIOverlay, setShowUIOverlay] = useState(true);
@@ -12,6 +12,8 @@ export default function DevicePreviewModal({ wallpaper, onClose, onAddToCart }) 
   const [isAdded, setIsAdded] = useState(false);
 
   const containerRef = useRef(null);
+
+  if (!wallpaper) return null;
 
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;

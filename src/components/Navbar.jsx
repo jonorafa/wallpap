@@ -1,6 +1,12 @@
+'use client';
+
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { Search, ShoppingBag, Palette, MessageSquare, Globe } from 'lucide-react';
-import CountdownTimer from './CountdownTimer';
+
+// Reads localStorage during initial render — must be skipped on the server
+// to avoid an SSR crash / hydration mismatch (matches original CSR-only behavior).
+const CountdownTimer = dynamic(() => import('./CountdownTimer'), { ssr: false });
 
 export default function Navbar({ onOpenContact, onOpenCart, cartCount, onOpenSearch, lang, onToggleLang, t }) {
   return (

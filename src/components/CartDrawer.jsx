@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { X, Trash2, ShoppingBag, ShieldCheck, Download, Layers } from 'lucide-react';
 
 export default function CartDrawer({ isOpen, onClose, cart, onUpdateCart, onCheckout, t }) {
-  if (!isOpen) return null;
-
   const [promoCode, setPromoCode] = useState('');
   const [discountPercent, setDiscountPercent] = useState(0);
   const [promoError, setPromoError] = useState('');
   const [promoSuccess, setPromoSuccess] = useState('');
+
+  // Reset promo form each time the drawer is reopened (matches prior behavior)
+  useEffect(() => {
+    if (isOpen) {
+      setPromoCode('');
+      setDiscountPercent(0);
+      setPromoError('');
+      setPromoSuccess('');
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   const handleApplyPromo = (e) => {
     e.preventDefault();
