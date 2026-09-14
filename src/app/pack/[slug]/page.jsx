@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import SiteHeader from '../../../components/SiteHeader';
 import BuyButton from '../../../components/BuyButton';
 import WishlistButton from '../../../components/WishlistButton';
+import PackCollage from '../../../components/PackCollage';
 import { PACKS, getPack } from '../../../data/packs';
 
 export function generateStaticParams() {
@@ -26,15 +27,8 @@ export default async function PackPage({ params }) {
           → חזרה לחנות
         </Link>
 
-        <div className="mt-6 grid grid-cols-2 gap-2">
-          {pack.images.map((image, idx) => (
-            <img
-              key={image}
-              src={image}
-              alt={`${pack.title} ${idx + 1}`}
-              className={`w-full object-cover bg-white/5 ${idx === 0 ? 'col-span-2 aspect-[4/3]' : 'aspect-square'}`}
-            />
-          ))}
+        <div className="mt-6">
+          <PackCollage images={pack.images} aspect="aspect-[4/5]" />
         </div>
 
         <div className="mt-8 space-y-1">
