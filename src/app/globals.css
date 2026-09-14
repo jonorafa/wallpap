@@ -2,110 +2,13 @@
 
 @layer base {
   body {
-    background-color: #090a0f;
-    color: #f1f5f9;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  }
-
-  h1, h2, h3, .font-serif-luxury {
-    font-family: 'Cinzel', serif;
+    background-color: #fafaf8;
+    color: #111111;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
 
-/* Custom Utilities for Gold Glow & Glassmorphism */
-.glass-panel {
-  background: rgba(15, 17, 26, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-panel-gold {
-  background: linear-gradient(135deg, rgba(25, 22, 18, 0.8) 0%, rgba(13, 14, 20, 0.9) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(229, 169, 59, 0.25);
-  box-shadow: 0 10px 30px -10px rgba(229, 169, 59, 0.15);
-}
-
-.gold-gradient-text {
-  background: linear-gradient(135deg, #FFF0C3 0%, #F5C775 40%, #D49A32 80%, #FFF3D6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gold-gradient-bg {
-  background: linear-gradient(135deg, #E5A93B 0%, #D49A32 50%, #B37B1D 100%);
-}
-
-.gold-gradient-border {
-  border-image: linear-gradient(to right, #F5C775, #B37B1D) 1;
-}
-
-/* Canvas Texture Overlay simulation */
-.canvas-texture {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 8px 8px;
-}
-
-/* Custom Scrollbars */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #090a0f;
-}
-::-webkit-scrollbar-thumb {
-  background: #252836;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #E5A93B;
-}
-
-/* Pulse animation */
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-.animate-shimmer {
-  animation: shimmer 2.5s infinite;
-}
-
-/* iPhone Frame Mockup Styling */
-.iphone-frame {
-  aspect-ratio: 9 / 19.5;
-  border-radius: 44px;
-  border: 10px solid #1c1e28;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Mac Display Mockup Styling */
-.mac-frame {
-  aspect-ratio: 16 / 10;
-  border-radius: 14px 14px 0 0;
-  border: 12px solid #1e202c;
-  border-bottom: none;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-.mac-base {
-  height: 14px;
-  background: linear-gradient(180deg, #2a2c3a 0%, #151620 100%);
-  border-radius: 0 0 16px 16px;
-  position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.mac-notch-notch {
-  width: 90px;
-  height: 8px;
-  background: #000;
-  margin: 0 auto;
-  border-radius: 0 0 8px 8px;
+::selection {
+  background-color: #111111;
+  color: #fafaf8;
 }
