@@ -30,3 +30,4 @@ next-env.d.ts
 
 # Raw source photos (not needed, already copied into public/wallpapers)
 /photo /
+.vercel
