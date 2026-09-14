@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function ProductCard({ pack }) {
   return (
     <Link href={`/pack/${pack.id}`} className="group block">
-      <div className="aspect-square overflow-hidden bg-black/5">
+      <div className="aspect-square overflow-hidden bg-white/5">
         <img
           src={pack.images[0]}
           alt={pack.title}
@@ -13,7 +13,7 @@ export default function ProductCard({ pack }) {
       </div>
       <div className="pt-3 flex items-center justify-between text-sm">
         <span className="font-medium">{pack.title}</span>
-        <span className="text-black/60">₪{pack.price}</span>
+        <span className="text-white/60">₪{pack.price}</span>
       </div>
     </Link>
   );

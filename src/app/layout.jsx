@@ -1,4 +1,6 @@
 import './globals.css';
+import { CartProvider } from '../context/CartContext';
+import CartDrawer from '../components/CartDrawer';
 
 export const metadata = {
   title: 'RekaPaper — Fonds d\'Écran 8K pour iPhone & Mac',
@@ -25,8 +27,11 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#fafaf8] text-[#111111] font-sans antialiased">
-        {children}
+      <body className="bg-[#0d0d0d] text-[#f5f5f5] font-sans antialiased">
+        <CartProvider>
+          {children}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );
