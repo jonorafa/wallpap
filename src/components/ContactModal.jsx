@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { X, Send, Check, MessageSquare } from 'lucide-react';
 
 export default function ContactModal({ isOpen, onClose, t }) {
-  if (!isOpen) return null;
-
   const [sent, setSent] = useState(false);
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  // Reset form each time the modal is reopened (matches prior behavior)
+  useEffect(() => {
+    if (isOpen) {
+      setSent(false);
+      setEmail('');
+      setMessage('');
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();

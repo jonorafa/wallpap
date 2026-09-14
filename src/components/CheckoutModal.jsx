@@ -1,13 +1,14 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { CheckCircle2, Download, Sparkles, X } from 'lucide-react';
 
 export default function CheckoutModal({ isOpen, onClose, cartDetails, onClearCart, t }) {
-  if (!isOpen) return null;
-
   const [downloadProgress, setDownloadProgress] = useState({});
 
   useEffect(() => {
+    if (!isOpen) return;
     // Launch gold confetti celebration
     confetti({
       particleCount: 100,
@@ -15,12 +16,15 @@ export default function CheckoutModal({ isOpen, onClose, cartDetails, onClearCar
       origin: { y: 0.6 },
       colors: ['#E5A93B', '#F5C775', '#ffffff', '#B37B1D']
     });
-  }, []);
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   const handleDownloadFile = (wallpaper, format) => {
     const key = `${wallpaper.id}-${format}`;
     setDownloadProgress((prev) => ({ ...prev, [key]: true }));
 
+    // TODO: replace with secure download flow (Tranzila + signed URL)
     // Virtual download link trigger
     const link = document.createElement('a');
     link.href = wallpaper.image || wallpaper.images?.[0];

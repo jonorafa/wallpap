@@ -1,12 +1,23 @@
-import React, { useState } from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { X, Smartphone, Monitor, Check, ShoppingBag, Star, Sparkles, ShieldCheck, Download } from 'lucide-react';
 
 export default function PackDetailModal({ pack, onClose, onAddToCart, t, lang }) {
-  if (!pack) return null;
-
   const [deviceFormat, setDeviceFormat] = useState('iphone');
-  const [selectedImage, setSelectedImage] = useState(pack.images[0]);
+  const [selectedImage, setSelectedImage] = useState(pack?.images?.[0]);
   const [isAdded, setIsAdded] = useState(false);
+
+  // Reset preview state each time a (new) pack is opened (matches prior behavior)
+  useEffect(() => {
+    if (pack) {
+      setDeviceFormat('iphone');
+      setSelectedImage(pack.images[0]);
+      setIsAdded(false);
+    }
+  }, [pack?.id]);
+
+  if (!pack) return null;
 
   const handleAdd = () => {
     onAddToCart(pack, deviceFormat);
