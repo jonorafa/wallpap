@@ -48,9 +48,9 @@ export default function WallpaperPreview({ images }) {
             className="h-full w-full object-cover transition-opacity duration-300"
           />
 
-          <div className="pointer-events-none absolute inset-x-0 top-[12%] flex flex-col items-center text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.5)]">
-            <span className="text-[3.2vw] sm:text-xs font-medium tracking-wide">{date}</span>
-            <span className="mt-0.5 text-[8vw] sm:text-3xl font-semibold tabular-nums leading-none">
+          <div className="pointer-events-none absolute inset-x-0 top-[6%] flex flex-col items-center text-white opacity-60 [text-shadow:0_2px_10px_rgba(0,0,0,0.5)]">
+            <span className="text-[2.7vw] sm:text-[0.64rem] font-medium tracking-wide">{date}</span>
+            <span className="mt-0.5 text-[6.8vw] sm:text-[1.6rem] font-semibold tabular-nums leading-none">
               {time}
             </span>
           </div>
