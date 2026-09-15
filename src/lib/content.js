@@ -3,7 +3,7 @@
 
 export const content = {
   brand: 'REKAPAPER',
-  contactEmail: 'hello@rekapaper.com',
+  contactEmail: 'rekapaper.il@gmail.com',
 
   meta: {
     title: 'Rekapaper — Oil Painting Wallpapers for Mac',
