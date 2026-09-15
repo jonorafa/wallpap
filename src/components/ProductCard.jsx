@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import PackCollage from './PackCollage';
-import { formatPrice } from '../lib/content';
+import { content, formatPrice } from '../lib/content';
 
 export default function ProductCard({ pack }) {
   return (
@@ -14,7 +14,10 @@ export default function ProductCard({ pack }) {
       </div>
       <div className="pt-3 text-left">
         <p className="font-bold">{pack.title}</p>
-        <p className="text-white/60 mt-1">{formatPrice(pack.price)}</p>
+        <p className="mt-1 flex items-center gap-2">
+          <span className="text-white/60">{formatPrice(pack.price)}</span>
+          <span className="text-xs text-white/40">{content.product.wallpaperCount(pack.images.length)}</span>
+        </p>
       </div>
     </Link>
   );
