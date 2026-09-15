@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { content, formatPrice } from '../lib/content';
 
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
+
 export default function BuyButton({ pack }) {
   const { addToCart } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -17,20 +19,18 @@ export default function BuyButton({ pack }) {
   return (
     <div className="space-y-3">
       <button
-        onClick={handleBuyNow}
-        disabled={isProcessing}
-        className="w-full bg-white text-black py-4 rounded-lg text-sm font-semibold hover:bg-white/85 transition-colors disabled:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        onClick={() => addToCart(pack)}
+        className={`w-full bg-indigo-500 text-white py-4 rounded-full text-base font-bold hover:bg-indigo-600 transition-colors ${FOCUS}`}
       >
-        {isProcessing
-          ? content.product.processing
-          : `${content.product.buyNow} — ${formatPrice(pack.price)}`}
+        {content.product.addToBag}
       </button>
 
       <button
-        onClick={() => addToCart(pack)}
-        className="block mx-auto text-sm text-white/70 hover:text-white underline underline-offset-4 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        onClick={handleBuyNow}
+        disabled={isProcessing}
+        className={`w-full bg-white text-black py-4 rounded-full text-base font-bold hover:bg-white/85 transition-colors disabled:opacity-70 ${FOCUS}`}
       >
-        {content.product.addToBag}
+        {isProcessing ? content.product.processing : content.product.buyNow}
       </button>
     </div>
   );

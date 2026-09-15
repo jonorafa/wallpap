@@ -22,7 +22,7 @@ export const content = {
     wallpaperCount: (n) => `${n} wallpapers`,
     buyNow: 'Buy Now',
     processing: 'Processing…',
-    addToBag: 'Add to bag',
+    addToBag: 'Add to Cart',
     addedToBag: 'Added to bag',
     // Only claims that are actually true today. "Instant download" and
     // "Secure payment" stay out until checkout and delivery are built.
