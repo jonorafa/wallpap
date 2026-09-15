@@ -25,7 +25,7 @@ export default async function PackPage({ params }) {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
 
-      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-8">
         <Link
           href="/"
           className="text-sm text-white/70 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
@@ -33,7 +33,7 @@ export default async function PackPage({ params }) {
           ← {content.product.back}
         </Link>
 
-        <div className="mt-6 grid md:grid-cols-2 gap-10 items-center">
+        <div className="mt-6 grid md:grid-cols-[1.7fr_1fr] gap-12 items-center">
           <WallpaperPreview images={pack.images} />
 
           <div>

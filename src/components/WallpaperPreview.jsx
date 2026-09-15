@@ -30,7 +30,7 @@ export default function WallpaperPreview({ images }) {
   const { date, time } = useLiveClock();
 
   return (
-    <div className="mx-auto w-full max-w-2xl">
+    <div className="w-full">
       <div className="relative w-full" style={{ aspectRatio: '740 / 457' }}>
         {/* Laptop frame photo, untouched */}
         <img

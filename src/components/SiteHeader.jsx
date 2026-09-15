@@ -16,9 +16,12 @@ export default function SiteHeader() {
 
         <nav className="flex items-center gap-4 sm:gap-8 text-base">
           <div className="hidden sm:flex items-center gap-8">
-            <Link href="/contact" className={`hover:text-white/70 transition-colors ${FOCUS}`}>
+            <a
+              href={`mailto:${content.contactEmail}`}
+              className={`hover:text-white/70 transition-colors ${FOCUS}`}
+            >
               {content.nav.contact}
-            </Link>
+            </a>
           </div>
           <HeaderActions />
         </nav>
