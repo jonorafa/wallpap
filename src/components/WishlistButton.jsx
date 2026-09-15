@@ -2,46 +2,27 @@
 
 import React, { useEffect, useState } from 'react';
 import { Heart } from 'lucide-react';
-
-const STORAGE_KEY = 'reka_wishlist';
+import { content } from '../lib/content';
+import { readWishlist, toggleWishlist } from '../lib/wishlist';
 
 export default function WishlistButton({ packId }) {
   const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      setIsSaved(saved.includes(packId));
-    } catch {
-      // ignore unavailable storage
-    }
+    setIsSaved(readWishlist().includes(packId));
   }, [packId]);
 
-  const toggleWishlist = () => {
-    let saved = [];
-    try {
-      saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    } catch {
-      saved = [];
-    }
-
-    const next = saved.includes(packId) ? saved.filter((id) => id !== packId) : [...saved, packId];
-
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    } catch {
-      // ignore unavailable storage
-    }
-    setIsSaved(next.includes(packId));
+  const handleToggle = () => {
+    setIsSaved(toggleWishlist(packId).includes(packId));
   };
 
   return (
     <button
-      onClick={toggleWishlist}
-      className="flex items-center gap-1.5 text-sm text-white/60 hover:text-white transition-colors"
+      onClick={handleToggle}
+      className="flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
     >
       <Heart className={`w-4 h-4 ${isSaved ? 'fill-white text-white' : ''}`} />
-      <span>{isSaved ? 'ברשימת המשאלות' : 'הוסף לרשימת המשאלות'}</span>
+      <span>{isSaved ? content.wishlist.added : content.wishlist.add}</span>
     </button>
   );
 }

@@ -1,26 +1,24 @@
 import React from 'react';
+import Link from 'next/link';
 import HeaderActions from './HeaderActions';
+import { content } from '../lib/content';
+
+const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white';
 
 export default function SiteHeader() {
   return (
     <header className="border-b border-white/10">
       <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-        <nav className="flex items-center gap-8">
-          <div className="flex items-center gap-6 text-sm">
-            <a href="/" className="hover:text-white/70 transition-colors">
-              חנות
-            </a>
-            <a href="mailto:hello@rekapaper.com" className="hover:text-white/70 transition-colors">
-              צור קשר
-            </a>
-          </div>
+        <Link href="/" className={`text-lg font-bold tracking-widest ${FOCUS}`}>
+          {content.brand}
+        </Link>
 
+        <nav className="flex items-center gap-6 text-sm">
+          <Link href="/" className={`hover:text-white/70 transition-colors ${FOCUS}`}>
+            {content.nav.collections}
+          </Link>
           <HeaderActions />
         </nav>
-
-        <a href="/" className="text-lg font-bold tracking-tight">
-          RekaPaper
-        </a>
       </div>
     </header>
   );

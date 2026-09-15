@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Check } from 'lucide-react';
 import SiteHeader from '../../../components/SiteHeader';
+import SiteFooter from '../../../components/SiteFooter';
 import BuyButton from '../../../components/BuyButton';
 import WishlistButton from '../../../components/WishlistButton';
 import PackCollage from '../../../components/PackCollage';
 import { PACKS, getPack } from '../../../data/packs';
+import { content, formatPrice } from '../../../lib/content';
 
 export function generateStaticParams() {
   return PACKS.map((pack) => ({ slug: pack.id }));
@@ -19,32 +22,52 @@ export default async function PackPage({ params }) {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <SiteHeader />
 
-      <main className="max-w-3xl mx-auto px-6 py-10">
-        <Link href="/" className="text-sm text-white/60 hover:text-white transition-colors">
-          → חזרה לחנות
+      <main className="flex-1 max-w-3xl w-full mx-auto px-6 py-8">
+        <Link
+          href="/"
+          className="text-sm text-white/70 hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          ← {content.product.back}
         </Link>
 
-        <div className="mt-6">
+        <div className="mt-6 grid md:grid-cols-2 gap-8 items-start">
           <PackCollage images={pack.images} aspect="aspect-[4/5]" />
-        </div>
 
-        <div className="mt-8 space-y-1">
-          <h1 className="text-xl font-bold">{pack.title}</h1>
-          <p className="text-white/60 text-sm">{pack.images.length} רקעים · ₪{pack.price}</p>
-        </div>
+          <div>
+            <h1 className="text-2xl font-bold">{pack.title}</h1>
+            <p className="text-white/70 text-sm mt-1">
+              {content.product.wallpaperCount(pack.images.length)}
+            </p>
+            <p className="text-xl font-semibold mt-4">{formatPrice(pack.price)}</p>
 
-        <div className="mt-6">
-          <BuyButton pack={pack} />
-          <p className="mt-3 text-center text-xs text-white/50">הורדה מיידית לאחר התשלום</p>
-        </div>
+            {pack.description && (
+              <p className="text-white/70 text-sm mt-4 leading-relaxed">{pack.description}</p>
+            )}
 
-        <div className="mt-4 flex justify-center">
-          <WishlistButton packId={pack.id} />
+            <div className="mt-6">
+              <BuyButton pack={pack} />
+            </div>
+
+            <ul className="mt-5 space-y-2">
+              {content.product.guarantees.map((item) => (
+                <li key={item} className="flex items-center gap-2 text-sm text-white/70">
+                  <Check className="w-4 h-4 shrink-0" aria-hidden="true" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-5">
+              <WishlistButton packId={pack.id} />
+            </div>
+          </div>
         </div>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }

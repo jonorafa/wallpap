@@ -1,10 +1,22 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { getPack } from '../data/packs';
 
 const CartContext = createContext(null);
 
 const STORAGE_KEY = 'reka_cart';
+
+// A saved bag can outlive the catalogue: packs get renamed, repriced or
+// dropped. Rebuild every stored line from the current catalogue and discard
+// the ones that no longer exist, so nobody checks out a stale price.
+function reconcile(saved) {
+  if (!Array.isArray(saved)) return [];
+  return saved
+    .map((item) => getPack(item?.id))
+    .filter(Boolean)
+    .map((pack) => ({ id: pack.id, title: pack.title, price: pack.price, image: pack.images[0] }));
+}
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
@@ -14,7 +26,7 @@ export function CartProvider({ children }) {
   useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) setCart(JSON.parse(saved));
+      if (saved) setCart(reconcile(JSON.parse(saved)));
     } catch {
       // ignore invalid/unavailable storage
     }
