@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#0d0d0d] text-[#f5f5f5] font-sans antialiased">
+      <body className="bg-[#10141c] text-[#f0f2f6] font-sans antialiased">
         <CartProvider>
           {children}
           <CartDrawer />

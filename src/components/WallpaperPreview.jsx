@@ -66,7 +66,7 @@ export default function WallpaperPreview({ images }) {
             aria-label={`Preview wallpaper ${idx + 1}`}
             aria-pressed={selected === idx}
             className={`h-14 w-14 shrink-0 overflow-hidden rounded-lg transition-all ${FOCUS} ${
-              selected === idx ? 'ring-2 ring-indigo-500 ring-offset-2 ring-offset-[#0d0d0d]' : 'opacity-70 hover:opacity-100'
+              selected === idx ? 'ring-2 ring-indigo-500 ring-offset-2 ring-offset-[#10141c]' : 'opacity-70 hover:opacity-100'
             }`}
           >
             <img src={image} alt="" className="h-full w-full object-cover" />
