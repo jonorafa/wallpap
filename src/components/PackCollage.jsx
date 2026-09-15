@@ -1,11 +1,12 @@
 import React from 'react';
 
-export default function PackCollage({ images, aspect = 'aspect-square', minStrips = 6 }) {
+export default function PackCollage({ images, aspect = 'aspect-square', minStrips = 5 }) {
   const stripCount = Math.max(images.length, minStrips);
   const strips = Array.from({ length: stripCount }, (_, i) => ({
     image: images[i % images.length],
-    // vary the crop so a repeated image doesn't show the exact same slice twice
-    position: `50% ${(i * 37) % 100}%`
+    // center crop: images are pre-ordered by brightness so centered slices
+    // flow smoothly from one strip to the next
+    position: '50% 50%'
   }));
 
   return (
