@@ -1,16 +1,49 @@
-# React + Vite
+# Rekapaper
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Boutique de packs de fonds d'écran (peinture à l'huile) pour Mac.
 
-Currently, two official plugins are available:
+- **Stack** : Next.js 16 (App Router, JavaScript), React 19, Tailwind CSS v4
+- **Prod** : https://wallpap.vercel.app
+- **Langue du site** : anglais
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Développement
 
-## React Compiler
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Structure
 
-## Expanding the Oxlint configuration
+```
+src/
+  app/            # routes App Router (accueil, /pack/[slug], /wishlist, pages légales)
+  components/     # composants UI
+  context/        # CartContext (panier, persisté en localStorage)
+  data/packs.js   # catalogue : 3 packs de 5 wallpapers, 19.90₪
+  lib/content.js  # tous les textes de l'interface, centralisés
+public/wallpapers # images des packs
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## À savoir
+
+- `src/lib/content.js` centralise toutes les chaînes de l'interface : ajouter une
+  langue = dupliquer ce fichier, pas réécrire les composants.
+- Les packs sont disjoints (aucune image partagée entre deux packs) et leurs
+  images sont ordonnées par luminosité croissante, pour que les bandes de
+  `PackCollage` s'enchaînent sans rupture de contraste.
+- Sur la grille d'accueil, les packs s'affichent en bandes recadrées plutôt qu'en
+  image unique : une capture d'écran ne donne pas un fond d'écran exploitable.
+  C'est une dissuasion visuelle, pas une protection — les fichiers de
+  `public/wallpapers` restent accessibles directement.
+
+## Pas encore fait
+
+- **Paiement** : « Buy Now » et « Checkout » sont des placeholders
+  (`// TODO: connect to payment provider`). Aucun prestataire n'est branché.
+- **Livraison des fichiers** : pas de téléchargement après achat.
+- **Pages légales** : brouillons avec des `[TODO: ...]` explicites (entité
+  légale, adresse, juridiction, politique de remboursement). À faire relire par
+  un juriste avant lancement.
+- **Recherche et compte** : icônes décoratives, sans fonctionnalité derrière.
