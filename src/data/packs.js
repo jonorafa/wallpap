@@ -1,76 +1,46 @@
+export const PRICE = 19.9;
+
+// Packs are disjoint: no image appears in more than one pack.
+// The 6 redundant files in /public/wallpapers (exact duplicates and
+// lower-resolution copies of scenes below) are intentionally unreferenced.
 export const PACKS = [
   {
-    id: 'old-money-vibes',
-    title: 'Old Money Vibes',
-    price: 24.99,
+    id: 'motorsport',
+    title: 'Motorsport',
+    price: PRICE,
+    description: '',
     images: [
-      '/wallpapers/old_money_porsche.jpg',
-      '/wallpapers/old_money_interior.jpg',
-      '/wallpapers/old_money_riva.jpg'
+      '/wallpapers/f1_pyramids_night.png',
+      '/wallpapers/f1_some_drivers_never_leave.png',
+      '/wallpapers/porsche_gt3_positano.png',
+      '/wallpapers/porsche_tennis_court.png',
+      '/wallpapers/monaco_dusk.png'
     ]
   },
   {
-    id: 'complete-collection',
-    title: 'The Master Collection',
-    price: 79.99,
+    id: 'city-travel',
+    title: 'City & Travel',
+    price: PRICE,
+    description: '',
     images: [
-      '/wallpapers/old_money_porsche.jpg',
-      '/wallpapers/old_money_riva.jpg',
-      '/wallpapers/old_money_interior.jpg',
-      '/wallpapers/monaco_dusk.png',
-      '/wallpapers/minimalist_nordic.png',
-      '/wallpapers/abstract_gold.png',
-      '/wallpapers/cyberpunk_tokyo.png'
+      '/wallpapers/jerusalem_kotel_sunset.png',
+      '/wallpapers/rio_beach_sunset.png',
+      '/wallpapers/cyberpunk_tokyo.png',
+      '/wallpapers/riva_positano_helm.png',
+      '/wallpapers/penthouse_discipline_skyline.png'
     ]
   },
   {
-    id: 'monaco-riviera-vol1',
-    title: 'Monaco & Riviera Sunset',
-    price: 24.99,
+    id: 'interiors-abstracts',
+    title: 'Interiors & Abstracts',
+    price: PRICE,
+    description: '',
     images: [
-      '/wallpapers/monaco_dusk.png',
-      '/wallpapers/old_money_riva.jpg',
-      '/wallpapers/old_money_porsche.jpg'
-    ]
-  },
-  {
-    id: 'nordic-canvas-vol1',
-    title: 'Nordic Canvas & Tactile Clay',
-    price: 24.99,
-    images: [
-      '/wallpapers/minimalist_nordic.png',
-      '/wallpapers/abstract_gold.png',
-      '/wallpapers/old_money_interior.jpg'
-    ]
-  },
-  {
-    id: 'framed-perspectives-vol1',
-    title: 'Framed Perspectives & Interiors',
-    price: 24.99,
-    images: [
-      '/wallpapers/old_money_interior.jpg',
+      '/wallpapers/old_money_golf.png',
+      '/wallpapers/bitcoin_trading_desk.png',
+      '/wallpapers/rabbi_five_dollar.png',
       '/wallpapers/abstract_gold.png',
       '/wallpapers/minimalist_nordic.png'
-    ]
-  },
-  {
-    id: 'abstract-gold-vol1',
-    title: 'Abstract Obsidian & Gold Leaf',
-    price: 24.99,
-    images: [
-      '/wallpapers/abstract_gold.png',
-      '/wallpapers/minimalist_nordic.png',
-      '/wallpapers/old_money_riva.jpg'
-    ]
-  },
-  {
-    id: 'cyberpunk-tokyo-vol1',
-    title: 'Neon Rain & Tokyo Nights',
-    price: 24.99,
-    images: [
-      '/wallpapers/cyberpunk_tokyo.png',
-      '/wallpapers/abstract_gold.png',
-      '/wallpapers/old_money_interior.jpg'
     ]
   }
 ];
