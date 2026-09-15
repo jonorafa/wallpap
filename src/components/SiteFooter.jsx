@@ -12,7 +12,7 @@ const LINKS = [
 export default function SiteFooter() {
   return (
     <footer className="border-t border-white/10 mt-16">
-      <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-12 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
         <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           {LINKS.map((link) => (
             <Link

@@ -9,7 +9,7 @@ const FOCUS = 'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visi
 export default function SiteHeader() {
   return (
     <header className="border-b border-white/10">
-      <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-12 py-5 flex items-center justify-between">
         <Link href="/" className={FOCUS}>
           <Logo />
         </Link>

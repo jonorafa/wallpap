@@ -12,7 +12,7 @@ export default function WishlistPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-10">
+      <main className="flex-1 max-w-[1440px] w-full mx-auto px-8 lg:px-12 py-10">
         <h1 className="text-2xl font-bold mb-8">{content.wishlist.pageTitle}</h1>
         <WishlistGrid packs={PACKS} />
       </main>
