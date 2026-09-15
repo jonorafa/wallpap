@@ -12,6 +12,7 @@ export const content = {
 
   nav: {
     collections: 'Collections',
+    contact: 'Contact',
     wishlist: 'Wishlist',
     bag: 'Bag'
   },
